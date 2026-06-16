@@ -1,8 +1,8 @@
 <?php
-namespace Nexph\Cache;
+namespace nexphant\Cache;
 
-use Nexph\Cache\Stores\ApcuStore;
-use Nexph\Support\Config;
+use nexphant\Cache\Stores\ApcuStore;
+use nexphant\Support\Config;
 
 class CacheWarmer
 {
@@ -51,7 +51,7 @@ class CacheWarmer
             $apiPolicyPath = __DIR__ . '/../../config/api.json';
             if (file_exists($apiPolicyPath)) {
                 try {
-                    \Nexph\Http\ApiPolicy::fromFile($apiPolicyPath);
+                    \nexphant\Http\ApiPolicy::fromFile($apiPolicyPath);
                     $stats['warmed'][] = 'apipolicy';
                 } catch (\Exception $e) {
                     $stats['errors'][] = "apipolicy - {$e->getMessage()}";
@@ -66,9 +66,9 @@ class CacheWarmer
 
     public static function clear(): bool
     {
-        ApcuStore::delete('nexph:config:app');
-        ApcuStore::delete('nexph:apipolicy');
-        ApcuStore::delete('nexph:routes');
+        ApcuStore::delete('nexphant:config:app');
+        ApcuStore::delete('nexphant:apipolicy');
+        ApcuStore::delete('nexphant:routes');
         return ApcuStore::clear();
     }
 }

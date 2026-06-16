@@ -1,13 +1,13 @@
 <?php
 
-namespace Nexph\Cache\Store;
+namespace nexphant\Cache\Store;
 
 class RedisStore
 {
     private $redis;
     private string $prefix;
 
-    public function __construct(string $host = '127.0.0.1', int $port = 6379, string $prefix = 'nexph:')
+    public function __construct(string $host = '127.0.0.1', int $port = 6379, string $prefix = 'nexphant:')
     {
         if (!extension_loaded('redis')) {
             throw new \RuntimeException('ext-redis not available');

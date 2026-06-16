@@ -1,7 +1,7 @@
 <?php
-namespace Nexph\Cache;
+namespace nexphant\Cache;
 
-use Nexph\Cache\Stores\ApcuStore;
+use nexphant\Cache\Stores\ApcuStore;
 
 class Cache
 {

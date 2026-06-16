@@ -1,11 +1,11 @@
-# Nexph Cache
+# nexphant Cache
 
 Caching subsystem with multiple drivers.
 
 ## Installation
 
 ```bash
-composer require nexph/cache
+composer require nexphant/cache
 ```
 
 ## License

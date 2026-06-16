@@ -1,6 +1,6 @@
 <?php
 
-namespace Nexph\Cache\Store;
+namespace nexphant\Cache\Store;
 
 class ArrayStore
 {

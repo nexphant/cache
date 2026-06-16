@@ -1,5 +1,5 @@
 <?php
-namespace Nexph\Cache\Stores;
+namespace nexphant\Cache\Stores;
 
 class RedisStore
 {

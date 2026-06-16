@@ -1,17 +1,17 @@
 {
-    "name": "nexph/cache",
-    "description": "Nexph Cache - Caching subsystem",
+    "name": "nexphant/cache",
+    "description": "nexphant Cache - Caching subsystem",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Nexph\\Cache\\": "src/"
+            "nexphant\\Cache\\": "src/"
         }
     },
     "require": {
         "php": "^8.1",
-        "nexph/core": "^0.0",
-        "nexph/support": "^0.0"
+        "nexphant/core": "^0.0",
+        "nexphant/support": "^0.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

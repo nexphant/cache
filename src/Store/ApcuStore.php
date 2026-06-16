@@ -1,12 +1,12 @@
 <?php
 
-namespace Nexph\Cache\Store;
+namespace nexphant\Cache\Store;
 
 class ApcuStore
 {
     private string $prefix;
 
-    public function __construct(string $prefix = 'nexph:')
+    public function __construct(string $prefix = 'nexphant:')
     {
         if (!extension_loaded('apcu')) {
             throw new \RuntimeException('ext-apcu is not available');
