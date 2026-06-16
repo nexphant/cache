@@ -1,6 +1,6 @@
 <?php
 
-namespace nexphant\Cache\Store;
+namespace Nexphant\Cache\Store;
 
 class ApcuStore
 {

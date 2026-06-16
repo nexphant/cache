@@ -1,4 +1,4 @@
-# nexphant Cache
+# Nexphant Cache
 
 Caching subsystem with multiple drivers.
 

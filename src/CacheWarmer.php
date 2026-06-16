@@ -1,8 +1,8 @@
 <?php
-namespace nexphant\Cache;
+namespace Nexphant\Cache;
 
-use nexphant\Cache\Stores\ApcuStore;
-use nexphant\Support\Config;
+use Nexphant\Cache\Stores\ApcuStore;
+use Nexphant\Support\Config;
 
 class CacheWarmer
 {
@@ -51,7 +51,7 @@ class CacheWarmer
             $apiPolicyPath = __DIR__ . '/../../config/api.json';
             if (file_exists($apiPolicyPath)) {
                 try {
-                    \nexphant\Http\ApiPolicy::fromFile($apiPolicyPath);
+                    \Nexphant\Http\ApiPolicy::fromFile($apiPolicyPath);
                     $stats['warmed'][] = 'apipolicy';
                 } catch (\Exception $e) {
                     $stats['errors'][] = "apipolicy - {$e->getMessage()}";
