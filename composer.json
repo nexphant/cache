@@ -1,6 +1,6 @@
 {
     "name": "nexphant/cache",
-    "description": "nexphant Cache - Caching subsystem",
+    "description": "Nexphant Cache - Caching subsystem",
     "type": "library",
     "license": "MIT",
     "autoload": {
