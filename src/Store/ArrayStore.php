@@ -6,6 +6,13 @@ class ArrayStore
 {
     private array $cache = [];
     private array $expires = [];
+    private int $maxSize;
+    private int $setCount = 0;
+
+    public function __construct(int $maxSize = 10000)
+    {
+        $this->maxSize = max(1, $maxSize);
+    }
 
     public function get(string $key, mixed $default = null): mixed
     {
@@ -23,15 +30,38 @@ class ArrayStore
 
     public function set(string $key, mixed $value, int $ttl = 0): bool
     {
+        if (!isset($this->cache[$key]) && count($this->cache) >= $this->maxSize) {
+            $this->evictExpired();
+            if (count($this->cache) >= $this->maxSize) {
+                reset($this->cache);
+                $oldest = key($this->cache);
+                unset($this->cache[$oldest], $this->expires[$oldest]);
+            }
+        }
+
         $this->cache[$key] = $value;
-        
+
         if ($ttl > 0) {
             $this->expires[$key] = time() + $ttl;
         } else {
             unset($this->expires[$key]);
         }
 
+        if (++$this->setCount % 1000 === 0) {
+            $this->evictExpired();
+        }
+
         return true;
+    }
+
+    private function evictExpired(): void
+    {
+        $now = time();
+        foreach ($this->expires as $key => $exp) {
+            if ($exp < $now) {
+                unset($this->cache[$key], $this->expires[$key]);
+            }
+        }
     }
 
     public function delete(string $key): bool
